@@ -1,0 +1,48 @@
+Show Yes /No buttons in place of Ok/Cancel buttons of javascript confirm function.
+
+<apex:page>
+ 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/>
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        
+    <script>
+    // jquery funtion for pop up.
+     $(function () {
+     $('#a').click(function(){
+        $( '<div></div>' ).dialog({
+            resizable: false,
+            height:140,
+            modal: true,
+            open: function() {
+                 var markup = 'Are You Sure?';
+                 $(this).html(markup);
+            },
+            title: "Confirmation",
+            buttons: {
+                "Yes": function() {
+                    $( this ).dialog( "close" );
+                    yesFunction();
+                },
+                "No": function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+       });
+     });
+    
+    function yesFunction(){
+        // Write you code/logic of js here...
+        alert("call Apex method.");
+    }
+    </script>
+ 
+    <apex:form>
+        <h4>Click on Button for custom pop up.  </h4>
+        // Button.
+        <div id="a" class="btn">
+            Ok
+        </div>
+    </apex:form>
+</apex:page>
